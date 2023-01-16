@@ -7,14 +7,14 @@ const Search = (props) => {
   const inputRef = useRef();
   console.log(inputRef.current);
 
-  const DeleteProjecHour = (id) => {
-    if (window.confirm("Do you want to remove?")) {
+  const DeleteProjectHour = (id) => {
+     if (window.confirm("Do you want to remove?")) {
       fetch(BASE_URL + "/api/projecthour/" + id, {
         method: "DELETE",
       })
         .then((res) => {
           alert("Removed successfully.");
-          window.location.reload();
+           window.location.reload();
         })
         .catch((err) => {
           console.log(err.message);
@@ -77,7 +77,7 @@ const Search = (props) => {
                 <td>{projecthour.project.name}</td>
                 <td>{projecthour.project.description}</td>
                 <td><a onClick={() => { LoadEdit(object.index) }} className="btn btn-success">Edit</a>
-                    <a onClick={() => { DeleteProjecHour(projecthour.id) }} className="btn btn-danger">Remove</a>
+                    <a onClick={() => { DeleteProjectHour(projecthour.id) }} className="btn btn-danger">Remove</a>
                         {/* <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a> */}
                     </td>
               </tr>

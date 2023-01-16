@@ -8,19 +8,20 @@ const  ListOfProjects = () => {
    
   
     useEffect(() => {
-      fetch(BASE_URL + "/api/project/all")
-        .then((res) => {
-          return res.json()
-        })
-        .then(data => {
+      const getData = async () => {
+        const response = await fetch(BASE_URL + "/api/project/all")
+        const data = await response.json();
           console.log(data)
           setData(data)
-      })
+      }
+      getData()
         .catch((err) => {
           console.log(err.message);
         });
+
     }, []);
-    
+  
+  
     return (
     <div className="container">
         <br></br>

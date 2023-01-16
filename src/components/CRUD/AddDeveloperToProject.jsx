@@ -18,7 +18,7 @@ const AddDeveloperToProject = () => {
           body:JSON.stringify(projectdata)
         }).then((res)=>{
           alert('Saved successfully.')
-          navigate('/');
+
         }).catch((err)=>{
           console.log(err.message)
         })
@@ -99,7 +99,7 @@ const AddDeveloperToProject = () => {
                   <select className="form-control" value={developerId} onChange={e=>setDeveloperId(e.target.value)}>
                     <option>Chose Developer</option>
                     {developerList.map(developer =>(
-                      <option value={developer.id} key={developer.id}>  {developer.name}  </option>
+                      <option value={developer.id} key={developer.id}>  {developer.name} with id = {developer.id}  </option>
                     ))}
                   </select>
                   {/* <input value={harbourId} onChange={e=>setHarbourId(e.target.value)} className="form-control"></input> */}
