@@ -18,6 +18,7 @@ import {
   removeToken,
   setToken,
 } from "./utils/apiFacade";
+import { DROPLET_FOLDER } from "./utils/settings.js";
 
 export const initialState = {
   username: null,
@@ -77,7 +78,7 @@ function App(props) {
         {!getToken() ? (
           <>
             {/* Add only Routes where you dont have to be logged ind to access */}
-            <Route path="/" element={<LandingPage user={user} />} />
+            <Route path={DROPLET_FOLDER} element={<LandingPage user={user} />} />
 
             {/* But when you are going to deploy it then your path={DROPLET_FOLDER}, hopefully it works correctly */}
           </>
@@ -85,7 +86,7 @@ function App(props) {
           <>
             {/* You have to be logged in as user or admin to see added routes down below  */}
 
-            <Route path="/" element={<Home user={user} />} />
+            <Route path={DROPLET_FOLDER} element={<Home user={user} />} />
 
             {user.roles.includes("user") && (
               <>

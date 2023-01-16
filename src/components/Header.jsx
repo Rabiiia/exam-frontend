@@ -4,6 +4,7 @@ import Login from "./Login.jsx";
 import LoggedIn from "./LoggedIn.jsx";
 import "../styles/header.css";
 import { getToken } from '../utils/apiFacade.js';
+import { DROPLET_FOLDER } from '../utils/settings.js';
 
 
 function Header({setErrorMsg, user, setUser}) {
@@ -11,7 +12,7 @@ function Header({setErrorMsg, user, setUser}) {
 
     return (
             <nav className="topnav">
-            <NavLink className="active" to="/"><i className="fa fa-fw fa-home"></i> Home</NavLink>
+            <NavLink className="active" to={DROPLET_FOLDER}><i className="fa fa-fw fa-home"></i> Home</NavLink>
 
            
              {user.roles.includes("user") ? 
